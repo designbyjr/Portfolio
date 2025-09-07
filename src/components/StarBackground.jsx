@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+
+
 export const StarBackground = () => {
   const [stars, setStars] = useState([]);
   const [meteors, setMeteors] = useState([]);
@@ -33,7 +35,6 @@ export const StarBackground = () => {
         y: Math.random() * 20,
         delay: Math.random() * 15,
         animationDuration: Math.random() * 3 + 3,
-        rotation: Math.random() * 45 + 195, // Randomize rotation between 195-240 degrees
       });
     }
     setMeteors(newMeteors);
@@ -60,13 +61,12 @@ export const StarBackground = () => {
 
       {meteors.map((meteor) => (
         <div key={meteor.id} className="meteor animate-meteor" style={{
-          width: `${meteor.size * 100}px`, // Longer tail
-          height: `${meteor.size * 2}px`, // Keep height the same
+          width: `${meteor.size * 50}px`,
+          height: `${meteor.size * 2}px`,
           left: `${meteor.x}%`,
           top: `${meteor.y}%`,
-          animationDelay: `${meteor.delay}s`,
           animationDuration: `${meteor.animationDuration}s`,
-          transform: `rotate(${meteor.rotation}deg)`, // Apply custom rotation
+          delay: `${meteor.delay}s`,
         }}/>
       ))}    
     </div>
