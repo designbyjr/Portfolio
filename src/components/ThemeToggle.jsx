@@ -20,23 +20,30 @@ export const ThemeToggle = () => {
 
     const toggleTheme = (event) => {
         event.preventDefault();
+        const meteors = document.getElementsByClassName("animate-meteor");
        if(!isDarkMode)
        {
         setIsDarkMode(true);
         document.documentElement.classList.add("dark");
         localStorage.setItem("theme", "dark");
+         Array.from(meteors).forEach((meteor) => {
+          meteor.classList.remove("hidden");
+        });
         return;
        }
         document.documentElement.classList.remove("dark");
         localStorage.removeItem("theme");
-        setIsDarkMode(false);
+        setIsDarkMode(false); 
+        Array.from(meteors).forEach((meteor) => {
+          meteor.classList.add("hidden");
+        });
     }
 
   return (
       <button onClick={toggleTheme} className={cn("fixed max-sm:hidden top-5 right-5 z-50 p-2 rounded-full transition colors duration-300",
         "focus:outline-hidden"
       )}>
-        {isDarkMode ? <Sun className='w-6 h-6 text-yellow-300'/> : <Moon className='w-6 h-6 text-blue-900'/>}
+       {isDarkMode ? <Sun className='w-6 h-6 text-yellow-300'/> : <Moon className='w-6 h-6 text-blue-900'/>}
         </button>
   );
 }
