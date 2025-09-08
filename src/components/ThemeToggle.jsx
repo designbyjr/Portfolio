@@ -20,23 +20,15 @@ export const ThemeToggle = () => {
 
     const toggleTheme = (event) => {
         event.preventDefault();
-        const meteors = document.getElementsByClassName("animate-meteor");
-       if(!isDarkMode)
-       {
-        setIsDarkMode(true);
-        document.documentElement.classList.add("dark");
-        localStorage.setItem("theme", "dark");
-         Array.from(meteors).forEach((meteor) => {
-          meteor.classList.remove("hidden");
-        });
-        return;
-       }
-        document.documentElement.classList.remove("dark");
-        localStorage.removeItem("theme");
-        setIsDarkMode(false); 
-        Array.from(meteors).forEach((meteor) => {
-          meteor.classList.add("hidden");
-        });
+        if(!isDarkMode) {
+            setIsDarkMode(true);
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("theme", "dark");
+        } else {
+            document.documentElement.classList.remove("dark");
+            localStorage.removeItem("theme");
+            setIsDarkMode(false);
+        }
     }
 
   return (

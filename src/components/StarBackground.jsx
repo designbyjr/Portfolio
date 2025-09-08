@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import { Meteors } from './Meteors';
 
 export const StarBackground = () => {
   const [stars, setStars] = useState([]);
-  const [meteors, setMeteors] = useState([]);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   //id for star, x, y, opacity, duration
   const generateStars = () => {
-    const numberOfStars = Math.floor(window.innerWidth * window.innerHeight / 10000);
+    const numberOfStars = Math.floor(window.innerWidth * window.innerHeight / 8900);
     const newStars = [];
     for (let i = 0; i < numberOfStars; i++) {
       newStars.push({
@@ -21,57 +22,60 @@ export const StarBackground = () => {
     setStars(newStars);
   }
 
-  //id for meteor, x, y, delay, animationDuration
-  const generateMeteors = () => {
-    const numberOfMeteors = 7;
-    const newMeteors = [];
-    for (let i = 0; i < numberOfMeteors; i++) {
-      newMeteors.push({
-        id: i,
-        size: Math.random() * 2 + 1,
-        x: Math.random() * 100,
-        y: Math.random() * 45 - (Math.random(10) + 15),
-        delay: Math.random() * 15.5,
-        animationDuration: Math.random() * 3 + 3,
-      });
-    }
-    setMeteors(newMeteors);
-  }
+  // Meteors are now handled by the Meteors component
 
   useEffect(() => {
-      generateStars();
-      generateMeteors();
-    
-      const handleResize = () => {
-      generateStars();
-      generateMeteors();
+    // Check initial dark mode state
+    const checkDarkMode = () => {
+      const isDark = document.documentElement.classList.contains('dark');
+      setIsDarkMode(isDark);
     };
-     
+    
+    checkDarkMode();
+    generateStars();
+    
+    // Listen for theme changes
+    const observer = new MutationObserver(checkDarkMode);
+    observer.observe(document.documentElement, { 
+      attributes: true, 
+      attributeFilter: ['class'] 
+    });
+    
+    const handleResize = () => {
+      generateStars();
+    };
+    
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      observer.disconnect();
+    };
   }, []);
 
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
       {stars.map((star) => (
-        <div key={star.id} className="star animate-pluse-subtle" style={{
-          width: `${star.size}px`,
-          height: `${star.size}px`,
-          left: `${star.x}%`,
-          top: `${star.y}%`,
-          animationDuration: `${star.animationDuration}s`,
-          opacity: star.opacity,
-        }}/>
+        <div 
+          key={star.id} 
+          className="animate-pluse-subtle" 
+          style={{
+            width: `${star.size}px`,
+            height: `${star.size}px`,
+            left: `${star.x}%`,
+            top: `${star.y}%`,
+            animationDuration: `${star.animationDuration}s`,
+            opacity: star.opacity,
+            position: 'absolute',
+            borderRadius: '50%',
+            backgroundColor: isDarkMode ? 'white' : 'black',
+            boxShadow: isDarkMode 
+              ? '0 0 20px 5px rgba(255, 255, 255, 0.3)' 
+              : '0 0 15px 3px rgba(128, 128, 128, 0.6)'
+          }}/>
       ))}
 
-      {meteors.map((meteor) => (
-        <div key={meteor.id} id={meteor.id} className="meteor animate-meteor" style={{
-          width: `${meteor.size * 50}px`,
-          height: `${meteor.size * 2}px`,
-          left: `${meteor.x}%`,
-          top: `${meteor.y}%`,
-          animationDuration: `${meteor.animationDuration}s`,
-          delay: `${meteor.delay}s`,
-        }}/>
-      ))}    
+      {/* New Aceternity UI Meteors component */}
+      <Meteors number={15} />
     </div>
   );
 };

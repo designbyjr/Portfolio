@@ -18,21 +18,25 @@ export const HeroSection = () => {
             I create stellar web experiences with PHP & Laravel for a variety of clients . . .
             </p>
             {/** Greyed out client logos */}
-            <div className="flex justify-center items-center space-x-4 opacity-0 animate-fade-in-delay-4">
+            <div className="grid grid-cols-2 md:flex md:flex-row flex gap-4 md:gap-0 place-items-center justify-center items-center space-x-1 md:space-x-6 opacity-0 animate-fade-in-delay-4">
                 <img src="/assets/images/University_College_London_logo.svg.png" 
-                className="bg-white w-25"
+                className="bg-white w-33 rounded z-10"
                 alt="UCLlogo" />
                 <img src="/assets/images/OnBuycom.svg" 
-                className="w-25 mt-1"
+                className="w-30 bg-black p-1 rounded pt-2 z-10"
                 alt="OnBuy.com" />
                 <img src="/assets/images/AND-logo.png" 
-                className="w-25 mt-1"
+                className="w-32 mt-1"
                 alt="And Digital" />
                 <img src="/assets/images/Wunderman.svg" 
-                className="w-25"
+                className="w-26 bg-black p-2 rounded z-10"
                 alt="Wunderman Thompson" />
             </div>
-            <button className="bg-indigo-800 text-white px-5 py-2 mt-0 rounded-md opacity-0 animate-fade-in-delay-3">Contact Me</button>
+                    <div className="flex flex-row space-x-4 justify-center items-center">
+                      <button className="bg-gray-200 hover:bg-gray-300 transition-colors text-gray-900 border border-gray-400 px-5 py-2 mt-0 rounded-md opacity-0 animate-fade-in-delay-4" href="#projects">View My Work</button>
+                      <button className="bg-blue-800 text-white hover:bg-blue-900 transition-colors px-5 py-2 mt-0 rounded-md opacity-0 animate-fade-in-delay-4" href="#contact">Contact Me</button>
+                    </div>
+            
         </div>
       </div>
     </section>
