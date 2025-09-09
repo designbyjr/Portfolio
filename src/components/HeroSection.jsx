@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { ArrowDown } from 'lucide-react';
 
 export const HeroSection = () => {
 
@@ -14,7 +15,7 @@ export const HeroSection = () => {
                 Gordon
                 </span>
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3" >
+          <p className="text-lg md:text-xl text-foreground max-2-2xl mx-auto opacity-0 animate-fade-in-delay-3" >
             I create stellar web experiences with PHP & Laravel for a variety of clients . . .
             </p>
             {/** Greyed out client logos */}
@@ -33,11 +34,16 @@ export const HeroSection = () => {
                 alt="Wunderman Thompson" />
             </div>
                     <div className="flex flex-row space-x-4 justify-center items-center">
-                      <button className="bg-gray-200 hover:bg-gray-300 transition-colors text-gray-900 border border-gray-400 px-5 py-2 mt-0 rounded-md opacity-0 animate-fade-in-delay-4" href="#projects">View My Work</button>
-                      <button className="bg-blue-800 text-white hover:bg-blue-900 transition-colors px-5 py-2 mt-0 rounded-md opacity-0 animate-fade-in-delay-4" href="#contact">Contact Me</button>
+                      {/* <button className="bg-gray-200 hover:bg-gray-300 transition-colors text-gray-900 border border-gray-400 px-5 py-2 mt-0 rounded-md opacity-0 animate-fade-in-delay-4" href="#projects">View My Work</button> */}
+                      <button className="bg-blue-800 text-white hover:bg-blue-900 border border-blue-900 transition-colors px-5 py-2 mt-0 rounded-md opacity-0 animate-fade-in-delay-4" href="#contact">Contact Me</button>
                     </div>
             
         </div>
+      </div>
+      {/** bouncing arrow */}
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce">
+        <p className="text-sm mt-2">Scroll down</p>
+        <ArrowDown className="h-10 w-5"/>
       </div>
     </section>
   );

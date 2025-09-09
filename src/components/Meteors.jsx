@@ -3,14 +3,14 @@ import { cn } from '@/lib/utils';
 
 export const Meteors = ({ number = 20, className }) => {
   const meteors = [...Array(number)].map((_, i) => {
-    const size = Math.floor(Math.random() * 2) + 1;
+    const size = Math.floor(Math.random() * 2) + 2;
     return {
       id: i,
       size,
       left: Math.floor(Math.random() * 100),
       top: Math.floor(Math.random() * 100),
-      delay: Math.random() * 3,
-      duration: Math.floor(Math.random() * 8) + 3,
+      delay: Math.random() * 3 + 3,
+      duration: Math.floor(Math.random() * 8) + 2,
     };
   });
 

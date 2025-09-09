@@ -75,7 +75,7 @@ export const StarBackground = () => {
       ))}
 
       {/* New Aceternity UI Meteors component */}
-      <Meteors number={15} />
+      <Meteors number={20} />
     </div>
   );
 };
