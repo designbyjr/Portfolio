@@ -9,8 +9,8 @@ export const Meteors = ({ number = 20, className }) => {
       size,
       left: Math.floor(Math.random() * 100),
       top: Math.floor(Math.random() * 100),
-      delay: Math.random() * 3 + 3,
-      duration: Math.floor(Math.random() * 8) + 2,
+      delay: Math.random() * 3,
+      duration: Math.floor(Math.random() * 8) + 3,
     };
   });
 
