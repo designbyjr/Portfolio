@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils.js';
 import { X, Menu } from 'lucide-react';
+import ThemeToggle from '@/components/ThemeToggle.jsx';
 
       const navItems = [
         { id: 1, href: '#hero', name: 'Home' },
@@ -16,12 +17,14 @@ import { X, Menu } from 'lucide-react';
 
       useEffect(() => {
         const handleScroll = () => {
-          setIsScrolled(window.screenY > 10);
+          setIsScrolled(window.scrollY > 10);
         };
         window.addEventListener('scroll', handleScroll);
+        handleScroll();
         return () => {
           window.removeEventListener('scroll', handleScroll);
         };
+        
       }, []);
 
       const toggleMenu = () => {
@@ -50,13 +53,17 @@ import { X, Menu } from 'lucide-react';
                                         </a>
                                 ))}
                                 
+                                
                     </div>
                     {/* mobile version of nav links*/}
+                   
                     <button onClick={toggleMenu} className="md:hidden p-2 text-foreground z-50"
                         aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
                         >
                         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                         
                     </button>
+
                     <div className={cn(
                         "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
                         "transition-all duration-300 md:hidden",

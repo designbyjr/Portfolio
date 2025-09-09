@@ -28,67 +28,67 @@ const Skills = [
     },                   
     {
         name: 'JavaScript',
-        icon: 'javascript',
+        icon: 'javascript.svg',
         level: 90,
         category: 'Frontend'
     },
     {
         name: 'PHP',
-        icon: 'PHP',
+        icon: 'PHP.svg',
         level: 100,
         category: 'Backend'
     },
     {
         name: 'MySQL',
-        icon: 'mysql',
+        icon: 'mysql.svg',
         level: 95,
         category: 'Backend'     
     },
     {
         name: 'PostgreSQL',
-        icon: 'postgresql',
+        icon: 'postgresql.svg',
         level: 40,
         category: 'Backend'
     },
     {
         name: 'Laravel',
-        icon: 'laravel',
+        icon: 'laravel.svg',
         level: 95,
         category: 'Backend'
     },
     {
         name: 'Symfony',
-        icon: 'symfony',
+        icon: 'symfony.svg',
         level: 65,
         category: 'Backend'
     },
     {
         name: 'React',
-        icon: 'react',
+        icon: 'react.svg',
         level: 55,
         category: 'Frontend'
     },
     {
         name: 'AWS',
-        icon: 'AWS',
+        icon: 'AWS.svg',
         level: 90,
         category: 'Tools'
     },
     {
         name: 'Azure',
-        icon: 'azure',
+        icon: 'azure.svg',
         level: 60,
         category: 'Tools'
     },
     {
         name: 'Docker',
-        icon: 'docker',
+        icon: 'docker.svg',
         level: 95,
         category: 'Tools'
     },
     {
         name: 'Git',
-        icon: 'git',
+        icon: 'git.svg',    
         level: 95,
         category: 'Tools'
     },
@@ -107,9 +107,10 @@ export const SkillsSection = () => {
             {Skills.map((skill) => (
                 <div key={skill.name} className="bg-white p-6 rounded-lg shadow-md">
                     <div className="flex items-center justify-center mb-4">
-                        <img src={`/assets/images/${skill.icon}`} alt={skill.name} className="w-12 h-12 mr-2" />
+                        <img src={`/assets/images/${skill.icon}`} alt={skill.name} className="w-12 h-12 mr-2 object-contain" />
                         <span className="text-lg font-bold text-black">{skill.name}</span>
                     </div>
+                    <span className="text-secondary">{skill.level}%</span>
                     <div className="w-full bg-gray-200 rounded-full h-2.5">
                         <div className="bg-primary h-2.5 rounded-full" style={{ width: `${skill.level}%`}}></div>
                     </div>
