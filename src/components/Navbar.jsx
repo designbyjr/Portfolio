@@ -40,7 +40,7 @@ import ThemeToggle from '@/components/ThemeToggle.jsx';
                 <div className='container flex justify-between items-center'>
                     <a href="#hero" className='text-xl font-bold text-primary flex item-center'>
                         <span className='relative z-10'>
-                            <span className='text-glow text-foreground'> Jamie Codes</span> {""} Portfolio
+                            <span className='text-glow text-foreground'> Jamie's </span> {""} Portfolio
                         </span>
                     </a>
              

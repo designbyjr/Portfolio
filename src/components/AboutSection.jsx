@@ -11,9 +11,8 @@ export const AboutSection = () => {
         <div className="space-y-6 backdrop-blur-sm bg-card/50">
           <h3 className="text-2xl font-semibold pt-2">Passionate Web Developer & Laravel Enthusiast</h3>
           <p className="text-muted-foreground text-wrap">
-            I am a full-stack developer with a passion for creating beautiful and functional websites. 
-            I have a background in Web Development & Design from Northumbria University At Newcastle 
-            and have worked on a variety of projects, from small business websites to large-scale e-commerce platforms.
+I am a dedicated full-stack developer with a passion for crafting visually appealing and highly functional websites. 
+<br/>I hold a degree in Web Development and Design from Northumbria University at Newcastle and have experience with projects ranging from small business websites to e-commerce platforms.
           </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <a href="#contact" target="_blank" rel="noopener noreferrer" className="bg-blue-800 text-white hover:bg-blue-900 border border-blue-900 transition-colors px-5 py-2 rounded-md">Contact</a>
