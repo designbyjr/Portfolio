@@ -101,18 +101,19 @@ export const SkillsSection = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
                 My <span className="text-primary">Skills</span>
                 </h2>
-      </div>
-      <div>
+      
         <div className="grid grid-cols-2 md:grid-cols-3 gap-8">
             {Skills.map((skill) => (
-                <div key={skill.name} className="bg-white p-6 rounded-lg shadow-md">
+                <div key={skill.name} className="bg-white p-6 rounded-lg shadow-md flex flex-col justify-between">
                     <div className="flex items-center justify-center mb-4">
                         <img src={`/assets/images/${skill.icon}`} alt={skill.name} className="w-12 h-12 mr-2 object-contain" />
                         <span className="text-lg font-bold text-black">{skill.name}</span>
                     </div>
-                    <span className="text-secondary">{skill.level}%</span>
-                    <div className="w-full bg-gray-200 rounded-full h-2.5">
-                        <div className="bg-primary h-2.5 rounded-full" style={{ width: `${skill.level}%`}}></div>
+                    <div className="mt-auto">
+                        <span className="text-secondary">{skill.level}%</span>
+                        <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                            <div className="bg-primary h-2.5 rounded-full" style={{ width: `${skill.level}%`}}></div>
+                        </div>
                     </div>
                 </div>
             ))}
