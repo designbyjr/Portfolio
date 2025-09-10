@@ -24,15 +24,15 @@ export const ProjectSection = () => {
         <p className="text-center text-muted-foreground mb-12 mx-w-2xl mx-auto">
           Check out some of my recent projects in the last 2 years.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pb-10px">
           {projects.map((project, key) => (
             <div key={key} className="group bg-card rounded-lg overflow-hidden shadow-xs card-hover">
-                <h6 className="text-lg font-bold mb-2">{project.title}</h6>
-                <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
-                <a target="_blank" href={project.link} className="text-primary">View Project</a>
-                <div className="flex flex-wrap gap-2 mt-2">
+                <h6 className="text-lg font-bold m-2">{project.title}</h6>
+                <p className="text-sm text-muted-foreground mb-2">{project.description}</p>
+                <a target="_blank" href={project.link} className="text-primary mb-5">View Project</a>
+                <div className="ml-5 mr-5 mb-4 mt-2 flex flex-wrap gap-8">
                   {project.technologies.map((tech, key) => (
-                    <span key={key} className="bg-primary text-primary-foreground text-xs font-medium px-2 py-1 rounded-full">
+                    <span key={key} className="bg-primary text-primary-foreground text-xs font-medium px-2 py-1 rounded-full m-10px">
                       {tech}
                     </span>
                   ))}
